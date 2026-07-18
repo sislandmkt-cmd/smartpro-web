@@ -1470,7 +1470,7 @@
 
         <div class="proof-media reveal">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
-            <div class="proof-item" data-type="fb" data-src="https://www.facebook.com/share/r/17ZssKDYa7/" onclick="openProofModal(this)"
+            <div class="proof-item" data-type="video" data-src="gutter-antes-despues.mp4" onclick="openProofModal(this)"
                  style="grid-column:span 2;aspect-ratio:16/9;background:url('2.jpg') center/cover;">
               <div class="proof-video-play"><span>&#9658;</span></div>
             </div>
@@ -1949,14 +1949,11 @@
       const type = el.getAttribute('data-type');
       const src  = el.getAttribute('data-src');
       const body = document.getElementById('proofModalBody');
-      if (type === 'fb' && src) {
-        const embedSrc = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(src) + '&show_text=false&width=560&t=0';
-        body.innerHTML = '<div style="position:relative;width:100%;aspect-ratio:9/16;max-width:340px;margin:0 auto;border-radius:12px;overflow:hidden;background:#000;">'
-          + '<iframe src="'+embedSrc+'" style="position:absolute;inset:0;width:100%;height:100%;border:none;overflow:hidden;" '
-          + 'scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>'
+      if (type === 'video' && src) {
+        body.innerHTML = '<div style="max-width:380px;margin:0 auto;border-radius:18px;overflow:hidden;'
+          + 'box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);background:#000;">'
+          + '<video src="'+src+'" controls autoplay playsinline style="width:100%;display:block;max-height:80vh;"></video>'
           + '</div>';
-      } else if (type === 'video' && src) {
-        body.innerHTML = '<video src="'+src+'" controls autoplay style="width:100%;border-radius:12px;display:block;"></video>';
       } else if (type === 'video') {
         body.innerHTML = '<div style="background:var(--navy-light);border-radius:14px;padding:3.5rem 1.8rem;text-align:center;color:rgba(255,255,255,.85);font-family:var(--font-body);">'
           + '<div style="font-size:2rem;margin-bottom:1rem;">🎥</div>'
