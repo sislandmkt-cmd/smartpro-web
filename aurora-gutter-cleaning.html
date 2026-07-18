@@ -1470,7 +1470,7 @@
 
         <div class="proof-media reveal">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
-            <div class="proof-item" data-type="video" data-src="" onclick="openProofModal(this)"
+            <div class="proof-item" data-type="fb" data-src="https://www.facebook.com/share/r/17ZssKDYa7/" onclick="openProofModal(this)"
                  style="grid-column:span 2;aspect-ratio:16/9;background:url('2.jpg') center/cover;">
               <div class="proof-video-play"><span>&#9658;</span></div>
             </div>
@@ -1480,7 +1480,7 @@
                  style="aspect-ratio:1;background:url('2.jpg') center/cover;"></div>
           </div>
           <p style="font-size:.75rem;color:var(--text-muted);margin-top:.7rem;text-align:center;">
-            Click any photo to view &mdash; real Aurora job photos &amp; video coming soon
+            Click any photo to view &mdash; real Aurora job photos &amp; video
           </p>
         </div>
       </div>
@@ -1949,7 +1949,13 @@
       const type = el.getAttribute('data-type');
       const src  = el.getAttribute('data-src');
       const body = document.getElementById('proofModalBody');
-      if (type === 'video' && src) {
+      if (type === 'fb' && src) {
+        const embedSrc = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(src) + '&show_text=false&width=560&t=0';
+        body.innerHTML = '<div style="position:relative;width:100%;aspect-ratio:9/16;max-width:340px;margin:0 auto;border-radius:12px;overflow:hidden;background:#000;">'
+          + '<iframe src="'+embedSrc+'" style="position:absolute;inset:0;width:100%;height:100%;border:none;overflow:hidden;" '
+          + 'scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>'
+          + '</div>';
+      } else if (type === 'video' && src) {
         body.innerHTML = '<video src="'+src+'" controls autoplay style="width:100%;border-radius:12px;display:block;"></video>';
       } else if (type === 'video') {
         body.innerHTML = '<div style="background:var(--navy-light);border-radius:14px;padding:3.5rem 1.8rem;text-align:center;color:rgba(255,255,255,.85);font-family:var(--font-body);">'
