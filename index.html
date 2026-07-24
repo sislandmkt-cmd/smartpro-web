@@ -285,7 +285,7 @@
     #hero {
       background:
         linear-gradient(to right, rgba(11,31,58,0.92) 20%, rgba(11,31,58,0.65) 100%),
-        url('hero.jpg') center center / cover no-repeat;
+        url('hero.jpg') 68% 22% / cover no-repeat;
       width: 100%;
       display: block; /* Eliminado min-height y display:flex para arreglar el espacio amplio */
       position: relative;
@@ -1500,10 +1500,11 @@
           </div>
 
           <!-- Card 3: Solar Panel Cleaning -->
-          <div class="service-card reveal" id="solar-panel-cleaning">
+          <div class="service-card reveal" id="solar-panel-cleaning" data-video="true" data-src="solar-panel-cleaning.mp4" onclick="openProofModal(this)">
             <div class="service-card-inner">
               <div class="service-card-bg" style="background: url('3.jpg') center center / cover no-repeat;"></div>
               <div class="card-icon-bg"></div>
+              <div class="service-card-play">&#9658;</div>
               <div class="service-card-content">
                 <span class="service-tag">Chemical-Free</span>
               </div>
@@ -1520,10 +1521,11 @@
           </div>
 
           <!-- Card 4: Property Shield (wide) -->
-          <div class="service-card reveal">
+          <div class="service-card reveal" id="property-shield" data-video="true" data-src="property-shield.mp4" onclick="openProofModal(this)">
             <div class="service-card-inner">
               <div class="service-card-bg" style="background: url('4.jpg') center center / cover no-repeat;"></div>
               <div class="card-icon-bg"></div>
+              <div class="service-card-play">&#9658;</div>
               <div class="service-card-content">
                 <span class="service-tag">Preventive Care Plan</span>
               </div>
