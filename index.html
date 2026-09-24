@@ -20,8 +20,8 @@
   </script>
   <!-- ======================== -->
 
-  <title>SmartPro | Premium Property Maintenance – Parker, CO & Surrounding Areas</title>
-  <meta name="description" content="SmartPro offers professional window cleaning, gutter cleaning, solar panel cleaning, and Property Shield maintenance for Parker, Castle Rock, Centennial, Lone Tree, Greenwood Village, Littleton & Cherry Hills Village. Pure water technology. No streaks, no residue.">
+  <title>SmartPro | Window, Gutter & Air Duct Cleaning – Parker, Denver & North Metro, CO</title>
+  <meta name="description" content="SmartPro offers window cleaning, gutter cleaning, air duct cleaning, solar panel cleaning, and Property Shield maintenance across the Denver metro: Parker, Castle Rock, Centennial, Lone Tree, Aurora, Denver, Arvada, Westminster, Thornton, Broomfield, Erie, Longmont & more. Pure water technology. No streaks, no residue.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -289,10 +289,10 @@
         linear-gradient(to right, rgba(11,31,58,0.92) 20%, rgba(11,31,58,0.65) 100%),
         url('hero.jpg') 68% 22% / cover no-repeat;
       width: 100%;
-      display: block; /* Eliminado min-height y display:flex para arreglar el espacio amplio */
+      display: block;
       position: relative;
       overflow: hidden;
-      padding-top: 4rem; /* Margen ajustable pegado a la cintilla */
+      padding-top: 4rem;
       padding-bottom: 4rem;
     }
 
@@ -362,7 +362,6 @@
       margin-bottom: 2.4rem;
     }
 
-    /* Glassmorphism Form in Hero — glowing accent so it stands out from the dark background */
     .hero-form-box {
       background: linear-gradient(160deg, rgba(30,64,105,0.78) 0%, rgba(11,31,58,0.7) 100%);
       backdrop-filter: blur(18px);
@@ -411,7 +410,7 @@
     .trust-ribbon-track {
       display: flex;
       width: max-content;
-      animation: trust-scroll 26s linear infinite;
+      animation: trust-scroll 48s linear infinite;
     }
     @keyframes trust-scroll {
       from { transform: translateX(0); }
@@ -594,7 +593,7 @@
     ============================ */
     #services {
       padding: 4rem 0 0;
-      background: var(--white); /* Fondo blanco para contraste con las reseñas grises */
+      background: var(--white);
     }
     .services-header {
       text-align: center;
@@ -927,7 +926,7 @@
     }
     .footer-inner {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
       gap: 3rem;
       margin-bottom: 2.5rem;
     }
@@ -961,6 +960,15 @@
       transition: color .2s;
     }
     .footer-col ul li a:hover { color: var(--sky); }
+    .footer-col ul.area-list {
+      columns: 2;
+      column-gap: 1.2rem;
+    }
+    .footer-col ul.area-list li {
+      break-inside: avoid;
+      font-size: .83rem;
+      color: rgba(255,255,255,.5);
+    }
 
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,.06);
@@ -1172,20 +1180,30 @@
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lone Tree</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Greenwood Village</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Aurora</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Littleton</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Denver</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cherry Hills Village</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Arvada</div>
           <div class="trust-sep"></div>
-          
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Westminster</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Thornton</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Broomfield</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Erie</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Longmont</div>
+          <div class="trust-sep"></div>
+
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>5.0★ Google Rating</div>
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% Chemical-Free</div>
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>0 ppm Pure Water Tech</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Serving Parker, CO Since Day One</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Serving the Denver Metro</div>
           <div class="trust-sep"></div>
         </div>
         <div class="trust-ribbon-inner">
@@ -1197,20 +1215,30 @@
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lone Tree</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Greenwood Village</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Aurora</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Littleton</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Denver</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cherry Hills Village</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Arvada</div>
           <div class="trust-sep"></div>
-          
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Westminster</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Thornton</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Broomfield</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Erie</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Longmont</div>
+          <div class="trust-sep"></div>
+
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>5.0★ Google Rating</div>
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% Chemical-Free</div>
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>0 ppm Pure Water Tech</div>
           <div class="trust-sep"></div>
-          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Serving Parker, CO Since Day One</div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Serving the Denver Metro</div>
           <div class="trust-sep"></div>
         </div>
       </div>
@@ -1229,9 +1257,9 @@
 
         <!-- Texto principal y estadísticas -->
         <div class="hero-content">
-          <div class="section-label">Parker, CO · Premium Service</div>
+          <div class="section-label">Parker, Denver &amp; North Metro · Premium Service</div>
           <h1>Your Property<br>Deserves <em>Better</em><br>Than Basic Cleaning.</h1>
-          <p>We combine professional expertise with advanced pure-water technology to deliver results that last. Windows, gutters, solar panels — all protected, all pristine.</p>
+          <p>We combine professional expertise with advanced pure-water technology to deliver results that last. Windows, gutters, air ducts, solar panels — all protected, all pristine.</p>
 
           <div class="hero-corner-stats" style="display:flex; gap:1.5rem; align-items:center; margin-top:1.6rem; padding:.8rem 1.2rem; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:12px; width:fit-content;">
             <div style="text-align:center;">
@@ -1268,7 +1296,7 @@
           </div>
         </div>
 
-        <!-- Formulario (Movido desde CTA al Hero) -->
+        <!-- Formulario -->
         <div class="hero-form-box" id="estimate-form">
           <h3>Get a Free Estimate</h3>
           <p>Fill out the form and we'll reply within 24 hours.</p>
@@ -1297,6 +1325,7 @@
                 <option value="" style="background:#0B1F3A;">Select a service...</option>
                 <option value="Window Cleaning" style="background:#0B1F3A;">Window Cleaning</option>
                 <option value="Gutter Cleaning" style="background:#0B1F3A;">Gutter Cleaning</option>
+                <option value="Air Duct Cleaning" style="background:#0B1F3A;">Air Duct Cleaning</option>
                 <option value="Solar Panel Cleaning" style="background:#0B1F3A;">Solar Panel Cleaning</option>
                 <option value="Property Shield Plan" style="background:#0B1F3A;">Property Shield Plan</option>
                 <option value="Multiple Services" style="background:#0B1F3A;">Multiple Services</option>
@@ -1304,8 +1333,17 @@
             </div>
 
             <div style="margin-bottom:1rem;">
+              <label style="display:block; font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:.5rem;">Property Type *</label>
+              <select id="f-property" style="width:100%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:.75rem 1rem; color:var(--white); font-family:var(--font-body); font-size:.9rem; outline:none; transition: border-color .2s;" onfocus="this.style.borderColor='rgba(77,166,216,.6)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+                <option value="Residential" style="background:#0B1F3A;" selected>Residential</option>
+                <option value="Commercial" style="background:#0B1F3A;">Commercial / Business</option>
+                <option value="HOA / Property Management" style="background:#0B1F3A;">HOA / Property Management</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:1rem;">
               <label style="display:block; font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:.5rem;">City / Area</label>
-              <input id="f-city" type="text" placeholder="Parker, Castle Rock, Centennial..." style="width:100%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:.75rem 1rem; color:var(--white); font-family:var(--font-body); font-size:.9rem; outline:none; transition: border-color .2s;" onfocus="this.style.borderColor='rgba(77,166,216,.6)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'" />
+              <input id="f-city" type="text" placeholder="Parker, Denver, Westminster, Erie..." style="width:100%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:.75rem 1rem; color:var(--white); font-family:var(--font-body); font-size:.9rem; outline:none; transition: border-color .2s;" onfocus="this.style.borderColor='rgba(77,166,216,.6)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'" />
             </div>
 
             <div style="margin-bottom:1.6rem;">
@@ -1371,11 +1409,11 @@
       <div class="review-feature reveal">
         <div class="review-source">Google Reviews</div>
         <div class="review-feature-stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <blockquote>"Omar did a great job on our windows. We have a lot of windows, and it has been years since we got them professionally cleaned. Omar worked very hard, and got our windows and screens cleaned, inside and out. The house looks 'younger' and more presentable now. I didn't really realize how dirty windows can become, until they shine cleanly again! World of difference. Very friendly and courteous, would recommend him highly."</blockquote>
         <div class="review-author">
@@ -1596,7 +1634,6 @@
               <source src="VideoPagina.mp4" type="video/mp4">
             </video>
           </div>
-          <!-- Slogan below video, aligned to video width -->
           <div style="text-align:center; padding: .8rem 1rem; background:rgba(255,255,255,.04); border:1px solid rgba(77,166,216,.15); border-radius:14px;">
             <div style="font-size:.62rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--sky); margin-bottom:.4rem;">SmartPro · Parker, CO</div>
             <div style="font-family:var(--font-display); font-size:clamp(1rem, 1.8vw, 1.3rem); font-weight:700; color:var(--white); line-height:1.3;">
@@ -1618,7 +1655,7 @@
       <div class="cta-inner reveal">
         <div class="section-label">Ready to Get Started?</div>
         <h2>Your Home's Best<br><em>First Impression</em><br>Starts Here.</h2>
-        <p>Get a no-obligation quote within 24 hours. Based in Parker — we also serve Castle Rock, Centennial, Lone Tree, Greenwood Village, Littleton, and Cherry Hills Village.</p>
+        <p>Get a no-obligation quote within 24 hours. Based in Parker — we serve the south Denver metro, Denver, and the north metro, from Castle Rock and Centennial to Arvada, Westminster, Thornton, Broomfield, Erie, and Longmont.</p>
 
         <div class="cta-actions" style="margin-top: 2rem;">
           <a href="#hero" class="btn-gold">Get Your Free Quote Now</a>
@@ -1647,6 +1684,7 @@
           <ul>
             <li><a href="#services">Window Cleaning</a></li>
             <li><a href="#services">Gutter Cleaning</a></li>
+            <li><a href="#hero">Air Duct Cleaning</a></li>
             <li><a href="#services">Solar Panel Cleaning</a></li>
             <li><a href="#services">Property Shield</a></li>
           </ul>
@@ -1662,14 +1700,27 @@
         </div>
         <div class="footer-col">
           <h4>Service Area</h4>
-          <ul>
-            <li><a href="#">Parker, CO</a></li>
-            <li><a href="#">Castle Rock</a></li>
-            <li><a href="#">Centennial</a></li>
-            <li><a href="#">Lone Tree</a></li>
-            <li><a href="#">Greenwood Village</a></li>
-            <li><a href="#">Littleton</a></li>
-            <li><a href="#">Cherry Hills Village</a></li>
+          <ul class="area-list">
+            <li>Parker</li>
+            <li>Castle Rock</li>
+            <li>Centennial</li>
+            <li>Lone Tree</li>
+            <li>Greenwood Village</li>
+            <li>Littleton</li>
+            <li>Cherry Hills Village</li>
+            <li>Aurora</li>
+            <li>Denver</li>
+            <li>Wheat Ridge</li>
+            <li>Commerce City</li>
+            <li>Arvada</li>
+            <li>Westminster</li>
+            <li>Northglenn</li>
+            <li>Thornton</li>
+            <li>Broomfield</li>
+            <li>Lafayette</li>
+            <li>Erie</li>
+            <li>Longmont</li>
+            <li>Frederick</li>
           </ul>
         </div>
       </div>
@@ -1725,7 +1776,7 @@
       .call-float svg { width: 24px; height: 24px; }
     }
   </style>
- <a href="tel:+19707160591"
+  <a href="tel:+19707160591"
      class="call-float"
      onclick="gtag('event', 'conversion', {'send_to': 'AW-18197470644/x6B2CL2bju0cELS7neVD'});"
   >
@@ -1774,7 +1825,6 @@
       document.body.style.overflow = '';
     }
 
-    // Close menu on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) closeMobileMenu();
     });
@@ -1783,15 +1833,15 @@
   <!-- FORMSPREE SUBMIT -->
   <script>
     async function submitEstimate() {
-      const name    = document.getElementById('f-name').value.trim();
-      const phone   = document.getElementById('f-phone').value.trim();
-      const service = document.getElementById('f-service').value;
-      const city    = document.getElementById('f-city').value.trim();
-      const message = document.getElementById('f-message').value.trim();
-      const errorEl = document.getElementById('form-error');
-      const btn     = document.getElementById('submit-btn');
+      const name     = document.getElementById('f-name').value.trim();
+      const phone    = document.getElementById('f-phone').value.trim();
+      const service  = document.getElementById('f-service').value;
+      const property = document.getElementById('f-property').value;
+      const city     = document.getElementById('f-city').value.trim();
+      const message  = document.getElementById('f-message').value.trim();
+      const errorEl  = document.getElementById('form-error');
+      const btn      = document.getElementById('submit-btn');
 
-      // Basic validation
       errorEl.style.display = 'none';
       if (!name || !phone || !service) {
         errorEl.textContent = 'Please fill in Name, Phone, and Service.';
@@ -1807,16 +1857,21 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            name, phone, service, city,
+            name, phone, service, property, city,
             message: message || 'No additional message.',
-            _subject: `New Estimate Request — ${service} — ${name}`
+            page: window.location.href,
+            referrer: document.referrer || 'direct',
+            gclid: new URLSearchParams(window.location.search).get('gclid') || 'none',
+            _subject: `New Estimate Request — ${property} — ${service} — ${name}`
           })
         });
 
         if (res.ok) {
           document.getElementById('form-fields').style.display = 'none';
           document.getElementById('form-success').style.display = 'block';
-          gtag('event', 'conversion', {'send_to': 'AW-18197470644/IMHqCI_A4uUcELS7neVD'});
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {'send_to': 'AW-18197470644/IMHqCI_A4uUcELS7neVD'});
+          }
         } else {
           throw new Error('Server error');
         }
@@ -1843,7 +1898,6 @@
         H = canvas.height = section.offsetHeight;
       }
       resize();
-      // Re-size on window resize and when section size changes (e.g. font load)
       window.addEventListener('resize', resize);
 
       const mouse = { x: -1000, y: -1000 };
@@ -1902,15 +1956,12 @@
       })();
     }
 
-    // Technology section — van video background
     makeParticleCanvas('tech-canvas', 'technology', 70, 0.22, 0.07);
-    // CTA form section
     makeParticleCanvas('cta-canvas', 'cta', 65, 0.20, 0.06);
   </script>
 
   <!-- CURSOR + HERO CANVAS PARTICLES -->
   <script>
-    /* ── CUSTOM CURSOR ── */
     const _cur  = document.getElementById('sp-cursor');
     const _ring = document.getElementById('sp-cursor-ring');
     let _cx = -300, _cy = -300, _rx = -300, _ry = -300;
@@ -1932,7 +1983,6 @@
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
 
-    /* ── CANVAS PARTICLES (hero only) ── */
     const _hero   = document.getElementById('hero');
     const _canvas = document.getElementById('sp-canvas');
     const _ctx    = _canvas.getContext('2d');
