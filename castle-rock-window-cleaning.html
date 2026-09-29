@@ -1041,6 +1041,7 @@
       .footer-inner { grid-template-columns: 1fr; }
       .hero-corner-stats { display: none !important; }
       .hero-stats-mobile { display: flex !important; }
+      .hero-insured-mobile { display: flex !important; }
       footer { padding-bottom: 5rem; }
     }
 
@@ -1199,6 +1200,50 @@
       .com-grid { grid-template-columns: 1fr; }
       .com-wrap { padding: 2.2rem 1.5rem; }
     }
+
+    /* ============================
+       FULLY INSURED SEAL (premium gold)
+    ============================ */
+    .insured-seal {
+      display: flex; align-items: center; gap: .55rem;
+      position: relative; overflow: hidden;
+      margin: -.55rem -.6rem -.55rem 0;
+      padding: .35rem .9rem .35rem .5rem;
+      gap: .6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(241,217,142,.65);
+      background: linear-gradient(135deg, rgba(246,227,161,.20) 0%, rgba(201,168,76,.10) 55%, rgba(156,122,38,.18) 100%);
+      box-shadow: 0 0 18px rgba(212,175,79,.28), inset 0 1px 0 rgba(255,241,194,.35);
+    }
+    .insured-shield { flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(246,227,161,.55)) drop-shadow(0 2px 3px rgba(0,0,0,.35)); }
+    .insured-seal-title {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(180deg, #FFF1C2 0%, #E2C06A 55%, #B8912F 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .insured-pill {
+      align-items: center; gap: .5rem; width: fit-content;
+      margin: .9rem auto 0; padding: .4rem 1.3rem .4rem .7rem;
+      border-radius: 100px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #F6E3A1 0%, #D4AF4F 50%, #A9852C 100%);
+      border: 1px solid #FFF1C2;
+      box-shadow: 0 6px 22px rgba(212,175,79,.45), inset 0 1px 0 rgba(255,255,255,.5);
+      font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #0B1F3A;
+    }
+    .insured-seal::after, .insured-pill::after {
+      content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%;
+      background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.55) 50%, transparent 100%);
+      transform: skewX(-20deg);
+      animation: sp-shine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes sp-shine {
+      0%, 70% { left: -60%; }
+      100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .insured-seal::after, .insured-pill::after { animation: none; display: none; }
+    }
   </style>
 </head>
 <body>
@@ -1286,6 +1331,8 @@
 
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>5.0★ Google Rating</div>
           <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Fully Insured</div>
+          <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% Chemical-Free</div>
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>0 ppm Pure Water Tech</div>
@@ -1310,6 +1357,8 @@
           <div class="trust-sep"></div>
 
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>5.0★ Google Rating</div>
+          <div class="trust-sep"></div>
+          <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Fully Insured</div>
           <div class="trust-sep"></div>
           <div class="trust-badge-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% Chemical-Free</div>
           <div class="trust-sep"></div>
@@ -1355,6 +1404,14 @@
               <div style="font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:900; color:white; line-height:1;">0</div>
               <div style="font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:.2rem;">Chemicals</div>
             </div>
+            <div style="width:1px; height:30px; background:rgba(255,255,255,.15);"></div>
+            <div class="insured-seal" title="Liability insured">
+              <svg class="insured-shield" width="42" height="49" viewBox="0 0 24 28" aria-hidden="true"><defs><linearGradient id="sp-gold-d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3A1"/><stop offset=".5" stop-color="#D4AF4F"/><stop offset="1" stop-color="#9C7A26"/></linearGradient></defs><path d="M12 1.5 L22 5.5 V13.5 C22 20 17.6 24.6 12 26.5 C6.4 24.6 2 20 2 13.5 V5.5 Z" fill="url(#sp-gold-d)" stroke="#FFF1C2" stroke-width=".8" stroke-linejoin="round"/><path d="M7.5 14 L10.8 17.3 L16.8 10.8" fill="none" stroke="#0B1F3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="text-align:left; line-height:1;">
+                <div class="insured-seal-title">Fully</div>
+                <div style="font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:#F1D98E; margin-top:.2rem; font-weight:600;">Insured</div>
+              </div>
+            </div>
           </div>
 
           <div class="hero-stats-mobile" style="display:none; gap:1.5rem; align-items:center; justify-content:center; margin-top:1.8rem; padding:.9rem 1.2rem; background:rgba(255,255,255,.08); border-radius:14px; backdrop-filter:blur(8px);">
@@ -1372,6 +1429,10 @@
               <div style="font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; color:white; line-height:1;">0</div>
               <div style="font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:.2rem;">Chemicals</div>
             </div>
+          </div>
+          <div class="hero-insured-mobile insured-pill" style="display:none;">
+            <svg class="insured-shield" width="28" height="33" viewBox="0 0 24 28" aria-hidden="true"><defs><linearGradient id="sp-gold-m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3A1"/><stop offset=".5" stop-color="#D4AF4F"/><stop offset="1" stop-color="#9C7A26"/></linearGradient></defs><path d="M12 1.5 L22 5.5 V13.5 C22 20 17.6 24.6 12 26.5 C6.4 24.6 2 20 2 13.5 V5.5 Z" fill="#0B1F3A" stroke="#FFF1C2" stroke-width="1" stroke-linejoin="round"/><path d="M7.5 14 L10.8 17.3 L16.8 10.8" fill="none" stroke="#F6E3A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Fully Insured
           </div>
         </div>
 
@@ -1501,8 +1562,8 @@
         </div>
         <!-- ES: Escaparates comerciales / Oficinas / Bodegas pequeñas / Áreas comunes de HOA / Propiedades en renta administradas -->
 
-        <p class="com-note">We specialize in low-rise buildings up to 3 stories in Castle Rock (80104 &amp; 80108).</p>
-        <!-- ES: Nos especializamos en edificios de baja altura, de hasta 3 pisos, en Castle Rock (80104 y 80108). -->
+        <p class="com-note">We specialize in low-rise buildings up to 3 stories in Castle Rock (80104 &amp; 80108). Fully insured, with a certificate of insurance available on request.</p>
+        <!-- ES: Nos especializamos en edificios de baja altura, de hasta 3 pisos, en Castle Rock (80104 y 80108). Con seguro completo; certificado de seguro disponible a solicitud. -->
 
         <div class="com-actions">
           <a href="tel:+19707160591" class="btn-gold" onclick="gtag('event', 'conversion', {'send_to': 'AW-18197470644/x6B2CL2bju0cELS7neVD'});">Call for a Free Estimate</a>
