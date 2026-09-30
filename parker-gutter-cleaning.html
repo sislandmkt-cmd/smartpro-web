@@ -1792,6 +1792,43 @@
 
   <!-- FORMSPREE SUBMIT -->
   <script>
+    /* Lead source detection: tells Omar in plain words where each lead came from.
+       The first source of the visit is remembered for the session, so it survives
+       moving between pages of the site. */
+    var SP_CAMPAIGNS = { '23951908031': 'Parker' };
+    function spDetectSource() {
+      var p = new URLSearchParams(window.location.search);
+      if (p.get('gclid') || p.get('gbraid') || p.get('wbraid') || p.get('gad_source')) {
+        var id = p.get('gad_campaignid');
+        if (id && SP_CAMPAIGNS[id]) return 'Google Ads - ' + SP_CAMPAIGNS[id];
+        return id ? 'Google Ads (campaign ' + id + ')' : 'Google Ads';
+      }
+      if (p.get('utm_source')) {
+        return p.get('utm_source') + (p.get('utm_medium') ? ' / ' + p.get('utm_medium') : '');
+      }
+      var ref = document.referrer || '';
+      var host = '';
+      try { host = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+      if (!host || host === window.location.hostname.replace(/^www\./, '')) return 'Direct';
+      if (/(^|\.)google\./.test(host)) return 'Google Search / Maps';
+      if (/facebook\.com$|fb\.com$|fb\.me$/.test(host)) return 'Facebook';
+      if (/instagram\.com$/.test(host)) return 'Instagram';
+      if (/bing\.com$/.test(host)) return 'Bing';
+      if (/yahoo\.com$/.test(host)) return 'Yahoo';
+      if (/nextdoor\.com$/.test(host)) return 'Nextdoor';
+      return 'Referral: ' + host;
+    }
+    (function () {
+      try {
+        var now = spDetectSource();
+        var saved = sessionStorage.getItem('sp_source');
+        if (!saved || (saved === 'Direct' && now !== 'Direct')) sessionStorage.setItem('sp_source', now);
+      } catch (e) {}
+    })();
+    function spSource() {
+      try { return sessionStorage.getItem('sp_source') || spDetectSource(); }
+      catch (e) { return spDetectSource(); }
+    }
     async function submitEstimate() {
       const name    = document.getElementById('f-name').value.trim();
       const phone   = document.getElementById('f-phone').value.trim();
@@ -1820,10 +1857,11 @@
           body: JSON.stringify({
             name, phone, service, property, city,
             message: message || 'No additional message.',
+            source: spSource(),
             page: window.location.href,
             referrer: document.referrer || 'direct',
             gclid: new URLSearchParams(window.location.search).get('gclid') || 'none',
-            _subject: `New Estimate Request — ${property} — ${service} — ${name}`
+            _subject: `[${spSource()}] New Estimate Request — ${property} — ${service} — ${name}`
           })
         });
 
