@@ -1268,6 +1268,154 @@
       .showcase-video-wrap, .showcase-video-wrap:hover { transform: none; transition: none; }
       .sound-btn { animation: none; }
     }
+
+    /* ============================
+       SERVICE AREA (map + city list)
+    ============================ */
+    #service-area {
+      background: var(--off-white);
+      padding: 5rem 0;
+      scroll-margin-top: 124px;
+    }
+    .area-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .area-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+    }
+    .area-text h2 em { font-style: normal; color: var(--sky); }
+    .area-text > p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #4E6B88;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+    .area-lists {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      margin-bottom: 2.2rem;
+    }
+    .area-lists h3 {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #8C6D1F;
+      padding-bottom: .6rem;
+      margin-bottom: .6rem;
+      border-bottom: 1px solid rgba(11,31,58,.12);
+    }
+    .sa-list { list-style: none; display: flex; flex-direction: column; gap: .15rem; }
+    .sa-list li, .sa-list li a {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--navy);
+      border-radius: 8px;
+    }
+    .sa-list li { padding: .32rem .5rem; margin-left: -.5rem; transition: background .15s ease; outline: none; }
+    .sa-list li svg { color: var(--sky); flex-shrink: 0; }
+    .sa-list li a { text-decoration: underline; text-decoration-color: rgba(77,166,216,.5); text-underline-offset: 3px; }
+    .sa-list li:hover, .sa-list li:focus-within, .sa-list li:focus, .sa-list li.is-active { background: rgba(77,166,216,.12); }
+    .sa-list li:focus-visible { box-shadow: 0 0 0 2px var(--sky); }
+    .area-hq {
+      font-style: normal;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #0B1F3A;
+      background: linear-gradient(135deg, #F6E3A1 0%, #D4AF4F 100%);
+      padding: .2em .6em;
+      border-radius: 100px;
+      text-decoration: none;
+    }
+    .area-map {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #0B1F3A;
+      box-shadow: 0 30px 70px rgba(11,31,58,.28);
+      border: 1px solid rgba(11,31,58,.2);
+      width: 100%;
+      max-width: 500px;
+      justify-self: center;
+    }
+    .area-svg { display: block; width: 100%; height: auto; }
+    .area-road { fill: none; stroke: rgba(126,200,227,.30); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .area-shield rect { fill: #122848; stroke: rgba(126,200,227,.45); stroke-width: 1; }
+    .area-shield text { fill: rgba(255,255,255,.75); font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; text-anchor: middle; }
+    .area-zone { fill: rgba(126,200,227,.38); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .18em; }
+    .area-compass circle { fill: #122848; stroke: rgba(126,200,227,.35); }
+    .area-compass path { fill: #C9A84C; }
+    .area-compass text { fill: rgba(255,255,255,.6); font-family: 'DM Sans', sans-serif; font-size: 9px; font-weight: 700; text-anchor: middle; }
+    .area-pin { cursor: default; }
+    .area-dot { fill: #4DA6D8; stroke: #FFFFFF; stroke-width: 2.5; transition: transform .2s ease, fill .2s ease; transform-box: fill-box; transform-origin: center; }
+    .area-pin text {
+      fill: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      paint-order: stroke;
+      stroke: #0B1F3A;
+      stroke-width: 5px;
+      stroke-linejoin: round;
+      opacity: 0;
+      transition: opacity .2s ease;
+      pointer-events: none;
+    }
+    .area-pin.is-labeled text { opacity: .92; }
+    .area-pin.is-active text { opacity: 1; }
+    .area-pin.is-active .area-dot { fill: #C9A84C; transform: scale(1.5); }
+    .area-pin.is-hq .area-dot { fill: #C9A84C; }
+    .area-pin.is-hq text { fill: #F1D98E; font-size: 19px; }
+    .area-pulse { fill: none; stroke: #C9A84C; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: area-pulse 2.4s ease-out infinite; }
+    @keyframes area-pulse { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3.2); opacity: 0; } }
+    .area-legend {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      padding: .6rem .8rem;
+      border-radius: 10px;
+      background: rgba(11,31,58,.85);
+      border: 1px solid rgba(126,200,227,.25);
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.85);
+    }
+    .area-legend span { display: flex; align-items: center; gap: .5rem; }
+    .area-legend i { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #FFFFFF; display: inline-block; }
+    .lg-hq { background: #C9A84C; }
+    .lg-city { background: #4DA6D8; }
+    @media (max-width: 900px) {
+      #service-area { padding: 4rem 0; }
+      .area-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .area-map { max-width: 520px; width: 100%; justify-self: center; }
+    }
+    @media (max-width: 480px) {
+      .area-lists { grid-template-columns: 1fr; gap: 1.2rem; }
+      .area-pin text { font-size: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .area-pulse { animation: none; opacity: 0; }
+      .area-dot, .area-pin text { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -1861,6 +2009,45 @@
   </section>
 
   <!-- ========================
+       4B. SERVICE AREA (map + city list)
+  ======================== -->
+  <section id="service-area">
+    <div class="container">
+      <div class="area-grid">
+        <div class="area-text reveal">
+          <div class="section-label">Service Area</div>
+          <!-- ES: Zona de servicio -->
+          <h2>Proudly serving<br><em>the Denver metro.</em></h2>
+          <!-- ES: Orgullosos de atender el área metropolitana de Denver. -->
+          <p>Based in Parker and on the road every day, from Castle Rock to Longmont. Don't see your city? Call us, we may still be able to help.</p>
+          <!-- ES: Con base en Parker y en camino todos los días, de Castle Rock a Longmont. ¿No ves tu ciudad? Llámanos, quizá podamos ayudarte. -->
+          <div class="area-lists">
+            <div>
+              <h3>South Metro</h3>
+              <ul class="sa-list"><li data-city="parker"><a href="parker-window-cleaning.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Parker</span><em class="area-hq">Home base</em></a></li><li data-city="castle-rock"><a href="castle-rock-window-cleaning.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Castle Rock</span></a></li><li data-city="centennial" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Centennial</span></li><li data-city="lone-tree" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lone Tree</span></li><li data-city="greenwood-village" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Greenwood Village</span></li><li data-city="littleton" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Littleton</span></li><li data-city="cherry-hills-village" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Cherry Hills Village</span></li><li data-city="aurora" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Aurora</span></li></ul>
+            </div>
+            <div>
+              <h3>Denver &amp; North Metro</h3>
+              <ul class="sa-list"><li data-city="denver" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Denver</span></li><li data-city="wheat-ridge" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Wheat Ridge</span></li><li data-city="commerce-city" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Commerce City</span></li><li data-city="arvada" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Arvada</span></li><li data-city="westminster" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Westminster</span></li><li data-city="northglenn" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Northglenn</span></li><li data-city="thornton" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Thornton</span></li><li data-city="broomfield" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Broomfield</span></li><li data-city="lafayette" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lafayette</span></li><li data-city="erie" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Erie</span></li><li data-city="longmont" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Longmont</span></li><li data-city="frederick" tabindex="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Frederick</span></li></ul>
+            </div>
+          </div>
+          <div class="area-actions">
+            <a href="#hero" class="btn-gold">Check Availability in My City</a>
+            <!-- ES: Revisa disponibilidad en mi ciudad -->
+          </div>
+        </div>
+        <div class="area-map reveal">
+          <svg class="area-svg" viewBox="0 0 690 950" role="img" aria-labelledby="areaMapTitle areaMapDesc"><title id="areaMapTitle">SmartPro service area map</title><desc id="areaMapDesc">Map of the Denver metro showing the 20 cities SmartPro serves, from Castle Rock in the south to Longmont in the north, with the home base in Parker.</desc><defs><pattern id="areaGrid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0 H0 V46" fill="none" stroke="rgba(126,200,227,.06)" stroke-width="1"/></pattern><linearGradient id="areaMtn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#14304F"/><stop offset="1" stop-color="#0B1F3A" stop-opacity="0"/></linearGradient><radialGradient id="areaGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4DA6D8" stop-opacity=".22"/><stop offset="1" stop-color="#4DA6D8" stop-opacity="0"/></radialGradient></defs><rect width="690" height="950" fill="#0B1F3A"/><rect width="690" height="950" fill="url(#areaGrid)"/><rect x="0" y="0" width="231.7" height="950" fill="url(#areaMtn)"/><path d="M18 130 L46 90 L62 108 L76 94 L108 130 Z" fill="none" stroke="rgba(126,200,227,.16)" stroke-width="1.5" stroke-linejoin="round"/><path d="M52 280 L80 240 L96 258 L110 244 L142 280 Z" fill="none" stroke="rgba(126,200,227,.16)" stroke-width="1.5" stroke-linejoin="round"/><path d="M18 430 L46 390 L62 408 L76 394 L108 430 Z" fill="none" stroke="rgba(126,200,227,.16)" stroke-width="1.5" stroke-linejoin="round"/><path d="M52 580 L80 540 L96 558 L110 544 L142 580 Z" fill="none" stroke="rgba(126,200,227,.16)" stroke-width="1.5" stroke-linejoin="round"/><path d="M18 730 L46 690 L62 708 L76 694 L108 730 Z" fill="none" stroke="rgba(126,200,227,.16)" stroke-width="1.5" stroke-linejoin="round"/><path d="M52 880 L80 840 L96 858 L110 844 L142 880 Z" fill="none" stroke="rgba(126,200,227,.16)" stroke-width="1.5" stroke-linejoin="round"/><text x="22" y="928" class="area-zone">ROCKY MOUNTAIN FOOTHILLS</text><ellipse cx="383.3" cy="500.0" rx="300" ry="470" fill="url(#areaGlow)"/><path d="M356.5 40.0 L352.7 200.0 L352.7 300.0 L352.7 400.0 L341.2 470.0 L345.0 510.0 L368.0 570.0 L425.5 650.0 L444.7 720.0 L429.3 800.0 L448.5 880.0 L456.2 950.0" class="area-road"/><path d="M0.0 500.0 L184.0 515.0 L283.7 470.0 L360.3 468.0 L498.3 485.0 L690.0 505.0" class="area-road"/><path d="M440.8 697.0 L506.0 715.0 L548.2 650.0 L555.8 500.0 L540.5 350.0 L475.3 295.0 L352.7 295.0" class="area-road"/><path d="M329.7 465.0 L429.3 400.0 L529.0 300.0 L667.0 190.0" class="area-road"/><path d="M440.8 697.0 L306.7 685.0 L218.5 620.0 L184.0 515.0" class="area-road"/><path d="M318.2 410.0 L264.5 325.0 L191.7 265.0 L138.0 230.0" class="area-road"/><g class="area-shield" transform="translate(433.2 780.0)"><rect x="-17" y="-9" width="34" height="18" rx="4"/><text y="4">I-25</text></g><g class="area-shield" transform="translate(452.3 478.0)"><rect x="-17" y="-9" width="34" height="18" rx="4"/><text y="4">I-70</text></g><g class="area-shield" transform="translate(552.0 420.0)"><rect x="-17" y="-9" width="34" height="18" rx="4"/><text y="4">E-470</text></g><g class="area-shield" transform="translate(483.0 350.0)"><rect x="-17" y="-9" width="34" height="18" rx="4"/><text y="4">I-76</text></g><g class="area-shield" transform="translate(291.3 370.0)"><rect x="-17" y="-9" width="34" height="18" rx="4"/><text y="4">US-36</text></g><g class="area-pin is-hq is-labeled" data-city="parker" transform="translate(527.9 731.4)"><title>Parker, CO</title><circle class="area-pulse" r="9"/><circle class="area-dot" r="9"/><text x="14" y="5" text-anchor="start">Parker · HQ</text></g><g class="area-pin is-labeled" data-city="castle-rock" transform="translate(455.3 877.8)"><title>Castle Rock, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Castle Rock</text></g><g class="area-pin" data-city="centennial" transform="translate(439.1 669.3)"><title>Centennial, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Centennial</text></g><g class="area-pin" data-city="lone-tree" transform="translate(424.0 713.9)"><title>Lone Tree, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Lone Tree</text></g><g class="area-pin" data-city="greenwood-village" transform="translate(382.7 632.8)"><title>Greenwood Village, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Greenwood Village</text></g><g class="area-pin is-labeled" data-city="littleton" transform="translate(332.3 636.7)"><title>Littleton, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Littleton</text></g><g class="area-pin" data-city="cherry-hills-village" transform="translate(376.1 608.3)"><title>Cherry Hills Village, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Cherry Hills Village</text></g><g class="area-pin is-labeled" data-city="aurora" transform="translate(473.9 520.6)"><title>Aurora, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Aurora</text></g><g class="area-pin is-labeled" data-city="denver" transform="translate(352.4 510.8)"><title>Denver, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Denver</text></g><g class="area-pin" data-city="wheat-ridge" transform="translate(285.8 483.9)"><title>Wheat Ridge, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Wheat Ridge</text></g><g class="area-pin" data-city="commerce-city" transform="translate(395.7 441.7)"><title>Commerce City, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Commerce City</text></g><g class="area-pin is-labeled" data-city="arvada" transform="translate(277.9 447.2)"><title>Arvada, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Arvada</text></g><g class="area-pin" data-city="westminster" transform="translate(316.5 413.3)"><title>Westminster, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Westminster</text></g><g class="area-pin" data-city="northglenn" transform="translate(359.5 353.9)"><title>Northglenn, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Northglenn</text></g><g class="area-pin is-labeled" data-city="thornton" transform="translate(366.5 382.0)"><title>Thornton, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Thornton</text></g><g class="area-pin" data-city="broomfield" transform="translate(278.5 329.5)"><title>Broomfield, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Broomfield</text></g><g class="area-pin" data-city="lafayette" transform="translate(276.2 256.4)"><title>Lafayette, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Lafayette</text></g><g class="area-pin is-labeled" data-city="erie" transform="translate(306.7 199.7)"><title>Erie, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Erie</text></g><g class="area-pin is-labeled" data-city="longmont" transform="translate(266.9 82.8)"><title>Longmont, CO</title><circle class="area-dot" r="6.5"/><text x="-14" y="5" text-anchor="end">Longmont</text></g><g class="area-pin" data-city="frederick" transform="translate(393.1 150.8)"><title>Frederick, CO</title><circle class="area-dot" r="6.5"/><text x="14" y="5" text-anchor="start">Frederick</text></g><g class="area-compass" transform="translate(646 904)"><circle r="22"/><path d="M0 -14 L5 2 L0 -2 L-5 2 Z"/><text y="18">N</text></g></svg>
+          <div class="area-legend">
+            <span><i class="lg-hq"></i>Home base: Parker</span>
+            <span><i class="lg-city"></i>Cities we serve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
        5. CTA FINAL
   ======================== -->
   <section id="cta">
@@ -2300,6 +2487,29 @@
       }
       _DOTS.forEach(d => { d.update(); d.draw(); });
       requestAnimationFrame(_loop);
+    })();
+  </script>
+
+  <!-- SERVICE AREA: link city list and map pins -->
+  <script>
+    (function () {
+      var pins = {};
+      document.querySelectorAll('.area-pin').forEach(function (p) { pins[p.getAttribute('data-city')] = p; });
+      var items = document.querySelectorAll('.sa-list li');
+      function setActive(id, on) {
+        var p = pins[id];
+        if (p) p.classList.toggle('is-active', on);
+        items.forEach(function (li) { if (li.getAttribute('data-city') === id) li.classList.toggle('is-active', on); });
+      }
+      items.forEach(function (li) {
+        var id = li.getAttribute('data-city');
+        ['mouseenter', 'focusin'].forEach(function (ev) { li.addEventListener(ev, function () { setActive(id, true); }); });
+        ['mouseleave', 'focusout'].forEach(function (ev) { li.addEventListener(ev, function () { setActive(id, false); }); });
+      });
+      Object.keys(pins).forEach(function (id) {
+        pins[id].addEventListener('mouseenter', function () { setActive(id, true); });
+        pins[id].addEventListener('mouseleave', function () { setActive(id, false); });
+      });
     })();
   </script>
 
