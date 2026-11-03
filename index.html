@@ -1712,6 +1712,8 @@
                 <option value="Gutter Cleaning" style="background:#0B1F3A;">Gutter Cleaning</option>
                 <option value="Air Duct Cleaning" style="background:#0B1F3A;">Air Duct Cleaning</option>
                 <option value="Solar Panel Cleaning" style="background:#0B1F3A;">Solar Panel Cleaning</option>
+                <option value="AC Line Cleaning" style="background:#0B1F3A;">AC Line Cleaning</option>
+                <option value="Whole-Home Cleaning" style="background:#0B1F3A;">Whole-Home Cleaning</option>
                 <option value="Property Shield Plan" style="background:#0B1F3A;">Property Shield Plan</option>
                 <option value="Multiple Services" style="background:#0B1F3A;">Multiple Services</option>
               </select>
@@ -1734,6 +1736,18 @@
             <div style="margin-bottom:1.6rem;">
               <label style="display:block; font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:.5rem;">Message (optional)</label>
               <textarea id="f-message" rows="3" placeholder="Tell us about your property or any specific needs..." style="width:100%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:.75rem 1rem; color:var(--white); font-family:var(--font-body); font-size:.9rem; outline:none; resize:vertical; transition: border-color .2s;" onfocus="this.style.borderColor='rgba(77,166,216,.6)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"></textarea>
+            </div>
+
+            <!-- SMS CONSENT (Twilio A2P 10DLC): optional, unchecked by default -->
+            <div style="margin-bottom:1.4rem;">
+              <label for="f-sms" style="display:flex; gap:.7rem; align-items:flex-start; cursor:pointer; text-align:left;">
+                <input id="f-sms" type="checkbox" name="sms_consent" value="yes" style="width:18px; height:18px; margin-top:.15rem; flex-shrink:0; accent-color:var(--gold); cursor:pointer;" />
+                <span style="font-size:.72rem; line-height:1.55; color:rgba(255,255,255,.55);">
+                  I agree to receive text messages from SmartPro Window &amp; Gutter Cleaning about my estimate, appointments, service reminders and special offers at the phone number provided. Consent is not a condition of purchase. Message frequency varies (up to 4/month). Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.
+                  <a href="privacy-policy.html" target="_blank" style="color:rgba(255,255,255,.75); text-decoration:underline;">Privacy Policy</a> &amp;
+                  <a href="terms-and-conditions.html#sms" target="_blank" style="color:rgba(255,255,255,.75); text-decoration:underline;">Terms</a>.
+                </span>
+              </label>
             </div>
 
             <div id="form-error" style="display:none; color:#ff6b6b; font-size:.82rem; margin-bottom:1rem; text-align:center;"></div>
@@ -2160,6 +2174,8 @@
             <li><a href="#services">Gutter Cleaning</a></li>
             <li><a href="#hero">Air Duct Cleaning</a></li>
             <li><a href="#services">Solar Panel Cleaning</a></li>
+            <li><a href="#hero">AC Line Cleaning</a></li>
+            <li><a href="#hero">Whole-Home Cleaning</a></li>
             <li><a href="#services">Property Shield</a></li>
           </ul>
         </div>
@@ -2199,7 +2215,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 SmartPro Property Maintenance. Parker, Colorado. All rights reserved. &nbsp;|&nbsp;
+        <p>© 2026 SmartPro Window &amp; Gutter Cleaning LLC. Parker, Colorado. All rights reserved. &nbsp;|&nbsp;
           <a href="terms-and-conditions.html" style="color:rgba(255,255,255,.5);">Terms and Conditions</a> &nbsp;|&nbsp;
           <a href="privacy-policy.html" style="color:rgba(255,255,255,.5);">Privacy Policy</a> &nbsp;|&nbsp;
           <span style="display:inline-flex; align-items:center; gap:.4rem; opacity:.6;">Designed & Developed by
@@ -2350,6 +2366,8 @@
       const property = document.getElementById('f-property').value;
       const city     = document.getElementById('f-city').value.trim();
       const message  = document.getElementById('f-message').value.trim();
+      const smsEl    = document.getElementById('f-sms');
+      const smsConsent = smsEl && smsEl.checked ? 'yes' : 'no';
       const errorEl  = document.getElementById('form-error');
       const btn      = document.getElementById('submit-btn');
 
@@ -2370,6 +2388,8 @@
           body: JSON.stringify({
             name, phone, service, property, city,
             message: message || 'No additional message.',
+            sms_consent: smsConsent,
+            sms_consent_at: smsConsent === 'yes' ? new Date().toISOString() : '',
             source: spSource(),
             page: window.location.href,
             referrer: document.referrer || 'direct',
