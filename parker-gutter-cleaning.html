@@ -1892,7 +1892,7 @@
             source: spSource(),
             page: window.location.href,
             referrer: document.referrer || 'direct',
-            gclid: new URLSearchParams(window.location.search).get('gclid') || 'none',
+           ...spClickIds(),
             _subject: `[${spSource()}] New Estimate Request — ${property} — ${service} — ${name}`
           })
         });
