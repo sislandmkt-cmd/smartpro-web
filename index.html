@@ -2359,6 +2359,22 @@
       try { return sessionStorage.getItem('sp_source') || spDetectSource(); }
       catch (e) { return spDetectSource(); }
     }
+        /* Ad click IDs: gclid (most browsers) and gbraid/wbraid (iPhone/iOS).
+       Saved for the session so they survive moving between pages before the form is sent. */
+    function spClickIds() {
+      var out = { gclid: 'none', gbraid: 'none', wbraid: 'none' };
+      var p = new URLSearchParams(window.location.search);
+      Object.keys(out).forEach(function (k) {
+        var v = p.get(k);
+        try {
+          if (v) sessionStorage.setItem('sp_' + k, v);
+          else v = sessionStorage.getItem('sp_' + k);
+        } catch (e) {}
+        if (v) out[k] = v;
+      });
+      return out;
+    }
+    spClickIds();
     async function submitEstimate() {
       const name     = document.getElementById('f-name').value.trim();
       const phone    = document.getElementById('f-phone').value.trim();
@@ -2377,7 +2393,7 @@
         errorEl.style.display = 'block';
         return;
       }
-
+      ...spClickIds(),
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
